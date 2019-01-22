@@ -425,7 +425,7 @@ class rlip_importplugin_importqueue extends rlip_importplugin_version1 {
         // Retrieve a User Set whose parent is equal to the solution id and whose display name is equal to Learning Path display name (Subset).
         $userset = userset::find(array(
                 new field_filter('parent', $solutionuserset->usersetid),
-                new field_filter('displayname', $learningpath)
+                new field_filter('name', $learningpath)
         ));
         // If a valid user set return the user set other wise. False.
         if ($userset->valid()) {
