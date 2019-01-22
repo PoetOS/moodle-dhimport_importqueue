@@ -16,7 +16,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-define('KRONOS_PHPUNIT_SCRIPT', true);
+define('KRONOS_PHPUNIT_SCRIPT', false);
 
 /**
  * Tests for Datahub import importqueue plugin.
@@ -70,7 +70,7 @@ class importqueue_testcase extends advanced_testcase {
         $importqueue = new rlip_importplugin_importqueue();
         $learningpath = $importqueue->validlearningpath('00000006-solutionid', 'learning path name 00000006-solutionid');
         $this->assertEquals($learningpath->name, 'learning path name 00000006-solutionid');
-        $this->assertEquals($learningpath->displayname, 'learning path name 00000006-solutionid');
+        $this->assertEquals($learningpath->display, 'test userset description');
         // Solution id does not exist.
         $learningpath = $importqueue->validlearningpath('00000006-solutionidabc', 'learning path name 00000006-solutionidabc');
         $this->assertFalse($learningpath);
